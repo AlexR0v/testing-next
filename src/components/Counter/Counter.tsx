@@ -7,15 +7,27 @@ interface CounterProps {
 
 const Counter: FC<CounterProps> = ({ defaultCount, defaultDescription }) => {
   const [count, setCount] = useState<number>(defaultCount)
+  const [incrementor, setIncrementor] = useState(1)
 
   return (
     <div>
       <h2>
         Desc: {defaultDescription} - DC: {defaultCount}
       </h2>
-      <button onClick={() => setCount(count - 1)}>-</button>
+      <label htmlFor='incrementor'>
+        Incrementor:
+        <input
+          id='incrementor'
+          value={incrementor}
+          onChange={(e) => {
+            setIncrementor(parseInt(e.target.value))
+          }}
+          type='number'
+        />
+      </label>
+      <button onClick={() => setCount(count - incrementor)}>-</button>
       Current count: {count}
-      <button onClick={() => setCount(count + 1)}>+</button>
+      <button onClick={() => setCount(count + incrementor)}>+</button>
     </div>
   )
 }
