@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "next lint --dir src",
     "test": "jest",
+    "test:ci": "jest --coverage --silent --ci",
+    "prettier": "prettier {*,src/*,src/**/*} --write --ignore-unknown",
     "prepare": "husky install",
     "lint-staged": "lint-staged"
   },
